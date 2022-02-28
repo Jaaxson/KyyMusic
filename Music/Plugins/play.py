@@ -183,20 +183,20 @@ async def music_onoff(_, message: Message):
         )
 
 
-@Client.on_message(command(["play", f"play@{BOT_USERNAME}", "p"]))
+@Client.on_message(command(["play", f"play@{BOT_USERNAME}", "تشغيل"]))
 async def play(_, message: Message):
     chat_id = message.chat.id
     if message.sender_chat:
         return await message.reply_text(
             """
-Anda adalah Admin Anonim!
-Kembalikan kembali ke Akun Pengguna Dari Hak Admin.
+أنت مسؤول مجهول!
+العودة إلى حساب المستخدم من حقوق المسؤول.
 """
         )
     global useer
     if chat_id in DISABLED_GROUPS:
         return await message.reply_text(
-            f"😕 **Maap {message.from_user.mention}, Musicnya Dimatiin Sama Admin**" 
+            f"😕 **عذرًا {message.from_user.mention} ، تم إيقاف تشغيل الموسيقى بواسطة المشرف**" 
         )
         return
     user_id = message.from_user.id
@@ -207,46 +207,46 @@ Kembalikan kembali ke Akun Pengguna Dari Hak Admin.
         LOG_ID = "-100156899495"
         if int(chat_id) != int(LOG_ID):
             return await message.reply_text(
-                f"Bot sedang dalam proses peng Updatean. Maaf untuk ketidaknyamanannya!"
+                f"البوت في طور التحديث. آسف للإزعاج!"
             )
         return await message.reply_text(
-            f"Bot sedang dalam Pemeliharaan. Maaf untuk ketidaknyamanannya!"
+            f"البوت تحت الصيانة. آسف للإزعاج"
         )
     a = await app.get_chat_member(message.chat.id, BOT_ID)
     if a.status != "administrator":
         await message.reply_text(
             """
-Saya perlu menjadi admin dengan beberapa izin:
+أحتاج إلى أن أكون مسؤولًا مع بعض الأذونات:
 
-- **dapat mengelola obrolan suara:** Untuk mengelola obrolan suara
-- **dapat menghapus pesan:** Untuk menghapus Sampah yang Dicari Musik
-- **dapat mengundang pengguna**: Untuk mengundang asisten untuk mengobrol
-- **dapat membatasi anggota**: Untuk Melindungi Musik dari Spam.
+- يمكنه إدارة الدردشة الصوتية: لإدارة الدردشة الصوتية
+- يمكنه حذف الرسائل: لحذف الموسيقى غير المرغوب فيها التي تم البحث عنها في الموسيقى
+- يمكن دعوة المستخدمين: لدعوة مساعد للدردشة
+- يمكن تقييد الأعضاء: لحماية الموسيقى من البريد العشوائي.
 """
         )
         return
     if not a.can_manage_voice_chats:
         await message.reply_text(
-            "Saya tidak memiliki izin yang diperlukan untuk melakukan tindakan ini."
-            + "\n❌ MENGELOLA OBROLAN SUARA"
+            "ليس لدي الأذونات اللازمة لتنفيذ هذا الإجراء."
+            + "\ n❌ إدارة المحادثات الصوتية"
         )
         return
     if not a.can_delete_messages:
         await message.reply_text(
-            "Saya tidak memiliki izin yang diperlukan untuk melakukan tindakan ini."
-            + "\n❌ HAPUS PESAN"
+            "ليس لدي الأذونات اللازمة لتنفيذ هذا الإجراء."
+            + "\ n❌ حذف الرسائل"
         )
         return
     if not a.can_invite_users:
         await message.reply_text(
-            "I don't have the required permission to perform this action."
-            + "\n❌ UNDANG PENGGUNA MELALUI LINK"
+           "ليس لدي الإذن المطلوب لتنفيذ هذا الإجراء."
+            + "\ n❌ دعوة المستخدمين عبر الرابط"
         )
         return
     if not a.can_restrict_members:
         await message.reply_text(
-            "Saya tidak memiliki izin yang diperlukan untuk melakukan tindakan ini."
-            + "\n❌ BAN PENGGUNA"
+            "ليس لدي الإذن اللازم للقيام بهذا الإجراء."
+            + "\ n❌ حظر المستخدم"
         )
         return
     try: 
@@ -299,7 +299,7 @@ Saya perlu menjadi admin dengan beberapa izin:
         what = "Audio Searched"
         await LOG_CHAT(message, what)
         mystic = await message.reply_text(
-            f"**🔄 Memproses Audio Yang Diberikan Oleh {username}**"
+            f"🔄 معالجة الصوت المقدم من {username}"
         )
         if audio.file_size > 157286400:
             await mystic.edit_text("Ukuran File Audio Harus Kurang dari 150 mb")
@@ -330,7 +330,7 @@ Saya perlu menjadi admin dengan beberapa izin:
             else file_name,
         )
         title = "Audio Yang Dipilih Dari Telegram"
-        link = "https://t.me/NastyProject"
+        link = "https://t.me/J_X_S3"
         thumb = "cache/Audio.png"
         videoid = "smex1"
     elif url:
@@ -457,7 +457,7 @@ Saya perlu menjadi admin dengan beberapa izin:
         what = "Query Given"
         await LOG_CHAT(message, what)
         query = message.text.split(None, 1)[1]
-        mystic = await message.reply_text("**🔎 Pencarian**")
+        mystic = await message.reply_text("**🔎 بحث**")
         try:
             a = VideosSearch(query, limit=5)
             result = (a.result()).get("result")
@@ -478,14 +478,14 @@ Saya perlu menjadi admin dengan beberapa izin:
             ID5 = result[4]["id"]
         except Exception as e:
             return await mystic.edit_text(
-                f"Lagu Tidak Ditemukan.\n**Kemungkinan Alasan:** {e}"
+                f"لم يتم العثور على الأغنية.\n**الأسباب المحتملة:** {e} "
             )
         thumb ="cache/IMG_20211230_211518_897.jpg"
         await mystic.delete()
         buttons = search_markup(ID1, ID2, ID3, ID4, ID5, duration1, duration2, duration3, duration4, duration5, user_id, query)
         hmo = await message.reply_photo(
             photo=thumb,
-            caption=f"**✨ Silahkan pilih lagu yang ingin anda putar**\n\n¹ <b>{title1}</b>\n  ┗ 💡 <u>__[More Information](https://t.me/{BOT_USERNAME}?start=info_{ID1})__</u>\n  ┗ ⚡ __Powered by {BOT_NAME}__\n\n² <b>{title2}</b>\n  ┗ 💡 <u>__[More Information](https://t.me/{BOT_USERNAME}?start=info_{ID2})__</u>\n  ┗ ⚡ __Powered by {BOT_NAME}__\n\n³ <b>{title3}</b>\n  ┗ 💡 <u>__[More Information](https://t.me/{BOT_USERNAME}?start=info_{ID3})__</u>\n  ┗ ⚡ __Powered by {BOT_NAME}__\n\n⁴ <b>{title4}</b>\n  ┗ 💡 <u>__[More Information](https://t.me/{BOT_USERNAME}?start=info_{ID4})__</u>\n  ┗ ⚡ __Powered by {BOT_NAME}__\n\n⁵ <b>{title5}</b>\n  ┗ 💡 <u>__[More Information](https://t.me/{BOT_USERNAME}?start=info_{ID5})__</u>\n  ┗ ⚡ __Powered by {BOT_NAME}__",    
+            caption=f"** ✨ سيلاهكان بيليه لاغو يانغ إنجين واندا بوتار***\n¹ <b>{title1}</b>\n ┗ 💡 <u>__[مزيد من المعلومات](https://t.me/{BOT_USERNAME}?start=┗ info_{ID1})__\</u>n ┗ ⚡ __Powered بواسطة {BOT_NAME}__\n\n² <b>{title2}</b>\n ┗ 💡 <u>__[مزيد من المعلومات](https://https://) t.me/{BOT_USERNAME}?start=info_{ID2})__\</u>n ┗ ⚡ __Powered بواسطة {BOT_NAME}___\n\n³ <b>{title3}</b>\n ┗ _💡<u>_[مزيد من المعلومات](https://t.me/{BOT_USERNAME}?ابدأ=info_{ID3})__\</u>n __Powered ⚡ ┗ بواسطة {BOT_NAME}___\n\\n\\n n⁴ <b>{title4}</b>\n ┗ 💡 <u>__[مور",    
             reply_markup=InlineKeyboardMarkup(buttons),
         )
         disable_web_page_preview=True
