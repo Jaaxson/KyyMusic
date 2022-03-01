@@ -183,7 +183,7 @@ async def music_onoff(_, message: Message):
         )
 
 
-@Client.on_message(command(["play", f"play@{BOT_USERNAME}", "تشغيل"]))
+@Client.on_message(command(["play", f"play@{BOT_USERNAME}", "شغيل" ,"تشغيل"]))
 async def play(_, message: Message):
     chat_id = message.chat.id
     if message.sender_chat:
@@ -782,7 +782,7 @@ async def popat(_,CallbackQuery):
         title6 = (result[5]["title"])
         duration6 = (result[5]["duration"])
         title7= (result[6]["title"])
-        duration7 = (result[6]["duration"])      
+        duration7 = (result[6]I["duration"])      
         title8 = (result[7]["title"])
         duration8 = (result[7]["duration"])
         title9 = (result[8]["title"])
