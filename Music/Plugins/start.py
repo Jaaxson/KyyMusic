@@ -43,7 +43,7 @@ def start_pannel():
             InlineKeyboardButton(text="قـناة السورس☢️", url=f"https://t.me/{CHANNEL}"),
         ],
         [
-            InlineKeyboardButton("📚 الاوامر​ 📚", url="https://telegra.ph/ҡʏʏ-ᴍᴇᴍ-ᴇx-01-21-2"),
+            InlineKeyboardButton("📚 الاوامر​ 📚", url="https://t.me/J_X_S3/917"),
         ],
         [
             InlineKeyboardButton("🌐 جـــاكــســون بـاشا🌐", url="https://t.me/J_X_S1"),
@@ -66,7 +66,7 @@ pstart_markup = InlineKeyboardMarkup(
             InlineKeyboardButton("قـناة الـبوت", url=f"https://t.me/{CHANNEL}"),
         ],
         [
-            InlineKeyboardButton("📚 الاوامر ​📚", url="https://telegra.ph/ҡʏʏ-ᴍᴇᴍ-ᴇx-01-21-2"),
+            InlineKeyboardButton("📚 الاوامر ​📚", url="https://t.me/J_X_S3/917"),
         ],
         [
             InlineKeyboardButton("🌐 جـــاكــســون بـاشـا🌐", url="https://t.me/J_X_S1"),
@@ -83,11 +83,11 @@ async def welcome(_, message: Message):
         try:
             if member.id in OWNER:
                 return await message.reply_text(
-                    f"💡 Pemilik Bot [{member.mention}] baru saja bergabung di grup ini."
+                    f"💡 انضم مالك البرنامج [{member.mention}] للتو إلى هذه المجموعة."
                 )
             if member.id in SUDOERS:
                 return await message.reply_text(
-                    f"💡 Admin Bot [{member.mention}] baru saja bergabung di grup ini."
+                    f"💡Admin Bot [{member.mention}] انضم للتو إلى هذه المجموعة.."
                 )
             if member.id == ASSID:
                 await remove_active_chat(chat_id)
@@ -140,7 +140,7 @@ async def play(_, message: Message):
             text=f"""
 **مرحبًا {rpk}!
 
-يتيح لك [{BOT_NAME}](tg://user؟id=2129034376) تشغيل الموسيقى في مجموعات عبر الدردشة الصوتية ، وهو الجديد على Telegram!
+يتيح لك [{BOT_NAME}] (tg: // user؟ id = 2129034376) تشغيل الموسيقى في مجموعات عبر الدردشة الصوتية ، وهو الجديد على Telegram!
 
 لمعرفة كافة أوامر الروبوت وكيفية عملها بالضغط على زر » الاوامر! **
 
