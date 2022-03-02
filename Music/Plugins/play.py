@@ -204,7 +204,7 @@ async def play(_, message: Message):
     username = message.from_user.first_name
     checking = f"[{message.from_user.first_name}](tg://user?id={message.from_user.id})"
     if await is_on_off(1):
-        LOG_ID = "-100156899495"
+        LOG_ID = "-1001733845814"
         if int(chat_id) != int(LOG_ID):
             return await message.reply_text(
                 f"البوت في طور التحديث. آسف للإزعاج!"
@@ -241,12 +241,6 @@ async def play(_, message: Message):
         await message.reply_text(
            "ليس لدي الإذن المطلوب لتنفيذ هذا الإجراء."
             + "\ n❌ دعوة المستخدمين عبر الرابط"
-        )
-        return
-    if not a.can_restrict_members:
-        await message.reply_text(
-            "ليس لدي الإذن اللازم للقيام بهذا الإجراء."
-            + "\ n❌ حظر المستخدم"
         )
         return
     try: 
